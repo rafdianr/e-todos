@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  width: auto;
+  font-size: 14px;
+  font-family: NunitoSansRegular, sans-serif;
+  color: #3a4166;
+
+}
+
+.sign {
+  background-color: whitesmoke;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.container {
+  top: 50%;
+  margin-top: -45vh;
+  left: 50%;
+  margin-left: -35vw;
+  width: 70vw;
+  height: 90vh;
+  position: absolute;
+  border-radius: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(0, 118, 214);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.sign-wrapper {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+}
+
+.sign-left {
+  padding: 1em;
+  border-top-left-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  background-color: rgb(0, 118, 214);
+  color: #f4f4f4;
+}
+
+.sign-right {
+  padding: 1em;
+  border-top-right-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  background-color: #F4F4F4;
+}
+
+.sign-left-item {
+  text-align: center;
+  width: 95%;
+  margin: auto;
+}
+
+.sign-left-item-title {
+  font-size: 2.7em;
+  margin-top: 2em;
+  padding: 2em 0;
+}
+
+/* .sign-left-item-des {} */
