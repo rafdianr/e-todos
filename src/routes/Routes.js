@@ -1,10 +1,13 @@
 import React, { Fragment } from "react";
 import SignUp from "../pages/SignUp";
+import SignIn from "../pages/SignIn";
+import { Route } from "react-router-dom";
 
 function Routes() {
   return (
     <Fragment>
-      <SignUp />
+      <Route path="/" component={SignUp} exact />
+      <Route path="/signin" component={SignIn} exact />
     </Fragment>
   );
 }

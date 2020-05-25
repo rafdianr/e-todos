@@ -2,7 +2,7 @@ import React from "react";
 import "../assets/style/style.css";
 import { Link } from "react-router-dom";
 
-function SignUp() {
+function SignIn() {
   return (
     <section className="sign">
       <div className="container">
@@ -10,26 +10,23 @@ function SignUp() {
           <div className="sign-left">
             <h2>Todos</h2>
             <div className="sign-left-item">
-              <h1 className="sign-left-item-title">Welcome Back!</h1>
+              <h1 className="sign-left-item-title">Hello, Friend!</h1>
               <p className="sign-left-item-des">
-                To keep connected with us please login with your personal info
+                Enter your personal details and start your journey with us
               </p>
-              <Link to="/signin">
-                <button class="reg-btn white">SIGN IN</button>
+              <Link to="/">
+                <button class="reg-btn white">SIGN UP</button>
               </Link>
             </div>
           </div>
           <div className="sign-right">
             <div className="sign-right-item">
-              <h1 className="sign-right-item-title">Created Account</h1>
-              <p className="sign-right-item-des">
-                or use email for registration
-              </p>
+              <h1 className="sign-right-item-title">Sign in to Task Manager</h1>
+              <p className="sign-right-item-des">or use email account</p>
               <form className="sign-form" action="submit">
-                <input type="text" placeholder="Name" />
                 <input type="text" placeholder="Email" />
                 <input type="text" placeholder="Password" />
-                <button class="reg-btn">SIGN UP</button>
+                <button class="reg-btn">SIGN IN</button>
               </form>
             </div>
           </div>
@@ -39,4 +36,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default SignIn;
