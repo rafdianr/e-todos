@@ -1,0 +1,39 @@
+.top {
+  margin: 1em 0 3em;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.social-media li:not(:last-child) {
+  margin-right: 20px;
+}
+
+.icon {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  font-size: 25px;
+  border-radius: 50%;
+  transition: .6s ease;
+  color: whitesmoke;
+  background: rgb(145, 145, 145);
+}
+
+.icon:hover {
+  background: rgb(0, 118, 214);
+
+}
+
+.fab {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

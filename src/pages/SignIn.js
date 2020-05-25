@@ -1,6 +1,7 @@
 import React from "react";
-import "../assets/style/style.css";
+import "../assets/style/SignPage.css";
 import { Link } from "react-router-dom";
+import SocialIcon from "../components/SocialIcon";
 
 function SignIn() {
   return (
@@ -22,6 +23,7 @@ function SignIn() {
           <div className="sign-right">
             <div className="sign-right-item">
               <h1 className="sign-right-item-title">Sign in to Task Manager</h1>
+              <SocialIcon />
               <p className="sign-right-item-des">or use email account</p>
               <form className="sign-form" action="submit">
                 <input type="text" placeholder="Email" />

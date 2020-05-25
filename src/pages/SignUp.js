@@ -1,6 +1,7 @@
 import React from "react";
-import "../assets/style/style.css";
+import "../assets/style/SignPage.css";
 import { Link } from "react-router-dom";
+import SocialIcon from "../components/SocialIcon";
 
 function SignUp() {
   return (
@@ -22,6 +23,7 @@ function SignUp() {
           <div className="sign-right">
             <div className="sign-right-item">
               <h1 className="sign-right-item-title">Created Account</h1>
+              <SocialIcon />
               <p className="sign-right-item-des">
                 or use email for registration
               </p>
