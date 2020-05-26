@@ -1,13 +1,8 @@
 import React from "react";
 import "../assets/style/TaskDashboard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPlus,
-  faSquare,
-  faStar,
-  faPencilAlt,
-  faTrashAlt,
-} from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import TaskCards from "../components/TaskCards";
 
 function TaskDashboard() {
   return (
@@ -42,22 +37,10 @@ function TaskDashboard() {
                 </i>
               </div>
             </div>
-            <div className="task-lists">
-              <div className="task-card">
-                <div className="task-icon check">
-                  <FontAwesomeIcon icon={faSquare} />
-                </div>
-                <p className="task-des">Test 1 2 3</p>
-                <div className="task-icon important">
-                  <FontAwesomeIcon icon={faStar} />
-                </div>
-                <div className="task-icon edit">
-                  <FontAwesomeIcon icon={faPencilAlt} />
-                </div>
-                <div className="task-icon del">
-                  <FontAwesomeIcon icon={faTrashAlt} />
-                </div>
-              </div>
+            <div className="task-list">
+              <TaskCards />
+              <TaskCards />
+              <TaskCards />
             </div>
           </div>
         </div>
