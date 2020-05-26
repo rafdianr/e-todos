@@ -23,7 +23,7 @@
   border-radius: 50%;
   transition: .6s ease;
   color: whitesmoke;
-  background: rgb(145, 145, 145);
+  background: #ccc;
 }
 
 .icon:hover {
