@@ -1,7 +1,13 @@
 import React from "react";
 import "../assets/style/TaskDashboard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlus,
+  faSquare,
+  faStar,
+  faPencilAlt,
+  faTrashAlt,
+} from "@fortawesome/free-solid-svg-icons";
 
 function TaskDashboard() {
   return (
@@ -21,9 +27,11 @@ function TaskDashboard() {
                 <strong>Profile Name</strong>
               </div>
             </div>
-            <p className="sort-by">My Day</p>
-            <p className="sort-by">Important</p>
-            <p className="sort-by">Completed</p>
+            <div>
+              <p className="sort-by">My Day</p>
+              <p className="sort-by">Important</p>
+              <p className="sort-by">Completed</p>
+            </div>
           </div>
           <div className="right-side">
             <div className="add-task">
@@ -32,6 +40,23 @@ function TaskDashboard() {
                 <i class="fab" alt="facebook">
                   <FontAwesomeIcon icon={faPlus} />
                 </i>
+              </div>
+            </div>
+            <div className="task-lists">
+              <div className="task-card">
+                <div className="task-icon check">
+                  <FontAwesomeIcon icon={faSquare} />
+                </div>
+                <p className="task-des">Test 1 2 3</p>
+                <div className="task-icon important">
+                  <FontAwesomeIcon icon={faStar} />
+                </div>
+                <div className="task-icon edit">
+                  <FontAwesomeIcon icon={faPencilAlt} />
+                </div>
+                <div className="task-icon del">
+                  <FontAwesomeIcon icon={faTrashAlt} />
+                </div>
               </div>
             </div>
           </div>
