@@ -16,7 +16,7 @@ function SignUp() {
                 To keep connected with us please login with your personal info
               </p>
               <Link to="/signin">
-                <button class="reg-btn white">SIGN IN</button>
+                <button className="reg-btn white">SIGN IN</button>
               </Link>
             </div>
           </div>
@@ -31,7 +31,7 @@ function SignUp() {
                 <input type="text" placeholder="Name" />
                 <input type="text" placeholder="Email" />
                 <input type="text" placeholder="Password" />
-                <button class="reg-btn">SIGN UP</button>
+                <button className="reg-btn">SIGN UP</button>
               </form>
             </div>
           </div>

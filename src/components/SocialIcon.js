@@ -9,25 +9,25 @@ import "../assets/style/SocialIcon.css";
 
 function SocialIcon() {
   return (
-    <div class="top">
-      <ul class="social-media">
+    <div className="top">
+      <ul className="social-media">
         <li>
           <div className="icon">
-            <i class="fab" alt="facebook">
+            <i className="fab" alt="facebook">
               <FontAwesomeIcon icon={faFacebookF} />
             </i>
           </div>
         </li>
         <li>
           <div className="icon">
-            <i class="fab" alt="google">
+            <i className="fab" alt="google">
               <FontAwesomeIcon icon={faGoogle} />
             </i>
           </div>
         </li>
         <li>
           <div className="icon">
-            <i class="fab" alt="linkedin">
+            <i className="fab" alt="linkedin">
               <FontAwesomeIcon icon={faLinkedinIn} />
             </i>
           </div>

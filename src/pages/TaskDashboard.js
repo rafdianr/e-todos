@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "../assets/style/TaskDashboard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -7,6 +8,7 @@ import TaskCards from "../components/TaskCards";
 const TaskDashboard = () => {
   const [todos, setTodos] = useState([]);
   const urlAPI = "https://jsonplaceholder.typicode.com/todos";
+
   useEffect(() => {
     axios({
       method: "GET",
@@ -43,7 +45,7 @@ const TaskDashboard = () => {
             <div className="add-task">
               <input type="text" placeholder="add task ..." />
               <div className="add-icon">
-                <i class="fab" alt="facebook">
+                <i className="fab" alt="facebook">
                   <FontAwesomeIcon icon={faPlus} />
                 </i>
               </div>
