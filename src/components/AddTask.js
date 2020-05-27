@@ -14,7 +14,7 @@ const AddTask = (props) => {
       completed: false,
     };
 
-    props.AddTodos(newData);
+    props.AddTodo(newData);
   };
 
   const change = (e) => {

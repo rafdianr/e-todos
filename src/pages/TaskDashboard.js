@@ -18,8 +18,12 @@ const TaskDashboard = () => {
     });
   }, []);
 
-  const handleAddTodos = (data) => {
+  const handleAddTodo = (data) => {
     setTodos([data, ...todos]);
+  };
+
+  const handleDeleteTodo = (id) => {
+    setTodos([...todos.filter((item) => item.id !== id)]);
   };
 
   return (
@@ -46,9 +50,9 @@ const TaskDashboard = () => {
             </div>
           </div>
           <div className="right-side">
-            <AddTask AddTodos={handleAddTodos} todos={todos} />
+            <AddTask AddTodo={handleAddTodo} todos={todos} />
             <div className="task-list">
-              <TaskCards todos={todos} />
+              <TaskCards todos={todos} DelTodo={handleDeleteTodo} />
             </div>
           </div>
         </div>

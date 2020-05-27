@@ -21,7 +21,7 @@ const TaskCards = (props) => {
       <div className="task-icon edit">
         <FontAwesomeIcon icon={faPencilAlt} />
       </div>
-      <div className="task-icon del">
+      <div className="task-icon del" onClick={() => props.DelTodo(item.id)}>
         <FontAwesomeIcon icon={faTrashAlt} />
       </div>
     </div>

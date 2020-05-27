@@ -141,4 +141,10 @@
 .task-icon {
   flex-basis: 5%;
   text-align: center;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.del:hover {
+  color: rgb(224, 54, 54);
 }
