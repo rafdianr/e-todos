@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import TaskCards from "../components/TaskCards";
 
-function TaskDashboard() {
+const TaskDashboard = () => {
   return (
     <section className="sign">
       <div className="container dashboard">
@@ -47,6 +47,6 @@ function TaskDashboard() {
       </div>
     </section>
   );
-}
+};
 
 export default TaskDashboard;
