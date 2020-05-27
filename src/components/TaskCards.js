@@ -8,13 +8,13 @@ import {
   faTrashAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
-function TaskCards() {
-  return (
-    <div className="task-card">
+const TaskCards = (props) => {
+  const list = props.todos.map((item) => (
+    <div className="task-card" key={item.id}>
       <div className="task-icon check">
         <FontAwesomeIcon icon={faSquare} />
       </div>
-      <p className="task-des">Test 1 2 3</p>
+      <p className="task-des">{item.title}</p>
       <div className="task-icon important">
         <FontAwesomeIcon icon={faStar} />
       </div>
@@ -25,7 +25,8 @@ function TaskCards() {
         <FontAwesomeIcon icon={faTrashAlt} />
       </div>
     </div>
-  );
-}
+  ));
+  return <>{list}</>;
+};
 
 export default TaskCards;

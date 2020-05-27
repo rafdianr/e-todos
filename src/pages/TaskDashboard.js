@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../assets/style/TaskDashboard.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import TaskCards from "../components/TaskCards";
+import AddTask from "../components/AddTask";
 
 const TaskDashboard = () => {
   const [todos, setTodos] = useState([]);
+
   const urlAPI = "https://jsonplaceholder.typicode.com/todos";
 
   useEffect(() => {
@@ -14,9 +14,13 @@ const TaskDashboard = () => {
       method: "GET",
       url: urlAPI,
     }).then((res) => {
-      setTodos(res.data.slice(0, 10));
+      setTodos(res.data.slice(0, 5));
     });
   }, []);
+
+  const handleAddTodos = (data) => {
+    setTodos([data, ...todos]);
+  };
 
   return (
     <section className="sign">
@@ -42,18 +46,9 @@ const TaskDashboard = () => {
             </div>
           </div>
           <div className="right-side">
-            <div className="add-task">
-              <input type="text" placeholder="add task ..." />
-              <div className="add-icon">
-                <i className="fab" alt="facebook">
-                  <FontAwesomeIcon icon={faPlus} />
-                </i>
-              </div>
-            </div>
+            <AddTask AddTodos={handleAddTodos} todos={todos} />
             <div className="task-list">
-              <TaskCards />
-              <TaskCards />
-              <TaskCards />
+              <TaskCards todos={todos} />
             </div>
           </div>
         </div>

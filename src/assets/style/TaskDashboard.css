@@ -96,6 +96,8 @@
   color: whitesmoke;
   background: rgb(145, 145, 145);
   margin: 1em 0;
+  text-decoration: none;
+  border: none;
 }
 
 .add-icon:hover {
@@ -116,7 +118,7 @@
   padding: 1em;
   background-color: white;
   border-radius: 0.5em;
-  /* overflow-y: scroll; */
+  overflow-y: scroll;
 }
 
 .task-card {
