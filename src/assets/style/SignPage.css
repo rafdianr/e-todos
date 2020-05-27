@@ -58,13 +58,14 @@ body {
 }
 
 .sign-left-item-title {
-  font-size: 2.7em;
+  font-size: 2.9em;
   margin-top: 2em;
   padding: 1.5em 0;
 }
 
 .sign-left-item-des {
   margin: 2em 0 0.5em;
+  font-size: 1.2em;
 }
 
 .sign-right-item {
@@ -75,13 +76,14 @@ body {
 
 .sign-right-item-title {
   color: rgb(0, 118, 214);
-  font-size: 2.7em;
+  font-size: 2.9em;
   padding: 1.5rem 0;
 }
 
 .sign-right-item-des {
   color: rgb(145, 145, 145);
   margin: 1em 0;
+  font-size: 1.2em;
 }
 
 .sign-form input {
@@ -91,7 +93,7 @@ body {
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 1em;
+  font-size: 1.2em;
 }
 
 .reg-btn {
@@ -99,7 +101,7 @@ body {
   border: none;
   color: #f4f4f4;
   padding: 1em 5em;
-  font-size: 1em;
+  font-size: 1.2em;
   margin-top: 1.5em;
   border-radius: 50px;
   cursor: pointer;
