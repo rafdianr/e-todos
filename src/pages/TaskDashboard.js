@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../assets/style/TaskDashboard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import TaskCards from "../components/TaskCards";
 
 const TaskDashboard = () => {
+  const [todos, setTodos] = useState([]);
+  const urlAPI = "https://jsonplaceholder.typicode.com/todos";
+  useEffect(() => {
+    axios({
+      method: "GET",
+      url: urlAPI,
+    }).then((res) => {
+      setTodos(res.data.slice(0, 10));
+    });
+  }, []);
+
   return (
     <section className="sign">
       <div className="container dashboard">
