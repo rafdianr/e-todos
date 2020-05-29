@@ -14,7 +14,7 @@ const TaskDashboard = () => {
       method: "GET",
       url: urlAPI,
     }).then((res) => {
-      setTodos(res.data.slice(0, 5));
+      setTodos(res.data.slice(0, 6));
     });
   }, []);
 
