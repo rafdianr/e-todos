@@ -7,16 +7,16 @@ import AddTask from "../components/AddTask";
 const TaskDashboard = () => {
   const [todos, setTodos] = useState([]);
 
-  const urlAPI = "https://jsonplaceholder.typicode.com/todos";
+  // const urlAPI = "https://jsonplaceholder.typicode.com/todos";
 
-  useEffect(() => {
-    axios({
-      method: "GET",
-      url: urlAPI,
-    }).then((res) => {
-      setTodos(res.data.slice(0, 6));
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios({
+  //     method: "GET",
+  //     url: urlAPI,
+  //   }).then((res) => {
+  //     setTodos(res.data.slice(0, 6));
+  //   });
+  // }, []);
 
   const handleAddTodo = (data) => {
     setTodos([data, ...todos]);
@@ -24,6 +24,14 @@ const TaskDashboard = () => {
 
   const handleDeleteTodo = (id) => {
     setTodos([...todos.filter((item) => item.id !== id)]);
+  };
+
+  const handleTaskImportance = (id) => {
+    console.log("change importance", id);
+    const tempTodos = todos.find((item) => item.id === id);
+    console.log(tempTodos);
+    tempTodos.importance = !tempTodos.importance;
+    console.log(tempTodos);
   };
 
   return (
@@ -52,7 +60,15 @@ const TaskDashboard = () => {
           <div className="right-side">
             <AddTask AddTodo={handleAddTodo} todos={todos} />
             <div className="task-list">
-              <TaskCards todos={todos} DelTodo={handleDeleteTodo} />
+              {todos.length ? (
+                <TaskCards
+                  todos={todos}
+                  DelTodo={handleDeleteTodo}
+                  ImpTodo={handleTaskImportance}
+                />
+              ) : (
+                <div className="no-task">Nothing you want to do yet</div>
+              )}
             </div>
           </div>
         </div>

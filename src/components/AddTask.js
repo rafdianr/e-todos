@@ -12,9 +12,11 @@ const AddTask = (props) => {
       id: props.todos.length + 1,
       title: newTask,
       completed: false,
+      importance: false,
     };
 
     props.AddTodo(newData);
+    setNewTask("");
   };
 
   const change = (e) => {
@@ -28,6 +30,7 @@ const AddTask = (props) => {
         placeholder="add task ..."
         value={newTask}
         onChange={change}
+        required
       />
       <button className="add-icon">
         <i className="fab" alt="facebook">

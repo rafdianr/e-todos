@@ -148,3 +148,8 @@
 .del:hover {
   color: rgb(224, 54, 54);
 }
+
+.no-task {
+  font-size: 1.2em;
+  color: #ccc;
+}

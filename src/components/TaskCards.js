@@ -16,7 +16,7 @@ const TaskCards = (props) => {
       </div>
       <p className="task-des">{item.title}</p>
       <div className="task-icon important">
-        <FontAwesomeIcon icon={faStar} />
+        <FontAwesomeIcon icon={faStar} onClick={() => props.ImpTodo(item.id)} />
       </div>
       <div className="task-icon edit">
         <FontAwesomeIcon icon={faPencilAlt} />
