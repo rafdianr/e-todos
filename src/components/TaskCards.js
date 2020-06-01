@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../assets/style/TaskDashboard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -15,7 +15,7 @@ const TaskCards = (props) => {
         <FontAwesomeIcon icon={faSquare} />
       </div>
       <p className="task-des">{item.title}</p>
-      <div className="task-icon important">
+      <div className={`task-icon ${item.importance && "important"}`}>
         <FontAwesomeIcon icon={faStar} onClick={() => props.ImpTodo(item.id)} />
       </div>
       <div className="task-icon edit">

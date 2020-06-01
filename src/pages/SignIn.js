@@ -15,8 +15,8 @@ function SignIn() {
               <p className="sign-left-item-des">
                 Enter your personal details and start your journey with us
               </p>
-              <Link to="/">
-                <button class="reg-btn white">SIGN UP</button>
+              <Link to="/signup">
+                <button className="reg-btn white">SIGN UP</button>
               </Link>
             </div>
           </div>
@@ -28,7 +28,7 @@ function SignIn() {
               <form className="sign-form" action="submit">
                 <input type="text" placeholder="Email" />
                 <input type="text" placeholder="Password" />
-                <button class="reg-btn">SIGN IN</button>
+                <button className="reg-btn">SIGN IN</button>
               </form>
             </div>
           </div>

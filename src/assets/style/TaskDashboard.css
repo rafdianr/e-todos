@@ -149,7 +149,15 @@
   color: rgb(224, 54, 54);
 }
 
+.task-icon:hover:not(:last-child) {
+  opacity: 0.5;
+}
+
 .no-task {
   font-size: 1.2em;
   color: #ccc;
+}
+
+.important {
+  color: yellow;
 }

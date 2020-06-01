@@ -27,11 +27,11 @@ const TaskDashboard = () => {
   };
 
   const handleTaskImportance = (id) => {
-    console.log("change importance", id);
+    console.log("change importance");
     const tempTodos = todos.find((item) => item.id === id);
-    console.log(tempTodos);
+    console.log("before change", tempTodos);
     tempTodos.importance = !tempTodos.importance;
-    console.log(tempTodos);
+    console.log("after change", tempTodos);
   };
 
   return (
