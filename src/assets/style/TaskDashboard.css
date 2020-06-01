@@ -138,6 +138,11 @@
   color: black;
 }
 
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
 .task-icon {
   flex-basis: 5%;
   text-align: center;
@@ -159,5 +164,5 @@
 }
 
 .important {
-  color: yellow;
+  color: rgb(255, 255, 95);
 }

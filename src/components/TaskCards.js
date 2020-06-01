@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../assets/style/TaskDashboard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,9 +12,14 @@ const TaskCards = (props) => {
   const list = props.todos.map((item) => (
     <div className="task-card" key={item.id}>
       <div className="task-icon check">
-        <FontAwesomeIcon icon={faSquare} />
+        <FontAwesomeIcon
+          icon={faSquare}
+          onClick={() => props.ComTodo(item.id)}
+        />
       </div>
-      <p className="task-des">{item.title}</p>
+      <p className={`task-des ${item.completion && "completed"}`}>
+        {item.title}
+      </p>
       <div className={`task-icon ${item.importance && "important"}`}>
         <FontAwesomeIcon icon={faStar} onClick={() => props.ImpTodo(item.id)} />
       </div>

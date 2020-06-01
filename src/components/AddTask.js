@@ -11,7 +11,7 @@ const AddTask = (props) => {
       userId: 1,
       id: props.todos.length + 1,
       title: newTask,
-      completed: false,
+      completion: false,
       importance: false,
     };
 

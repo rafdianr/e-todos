@@ -27,7 +27,7 @@ const TaskDashboard = () => {
   };
 
   const handleTaskImportance = (id) => {
-    // console.log("change importance");
+    console.log("change importance");
     // const tempTodos = todos.find((item) => item.id === id);
     // console.log("before change", tempTodos);
     // tempTodos.importance = !tempTodos.importance;
@@ -44,8 +44,12 @@ const TaskDashboard = () => {
     setTodos(tempTodos);
   };
 
-  const handleTaskCompleted = (id) => {
-    console.log("change ");
+  const handleTaskCompletion = (id) => {
+    console.log("change completion");
+    let tempTodos = todos.map((todo) => ({ ...todo }));
+    const comTodo = tempTodos.find((item) => item.id === id);
+    comTodo.completion = !comTodo.completion;
+    setTodos(tempTodos);
   };
 
   return (
@@ -79,6 +83,7 @@ const TaskDashboard = () => {
                   todos={todos}
                   DelTodo={handleDeleteTodo}
                   ImpTodo={handleTaskImportance}
+                  ComTodo={handleTaskCompletion}
                 />
               ) : (
                 <div className="no-task">Nothing you want to do yet</div>
