@@ -27,11 +27,25 @@ const TaskDashboard = () => {
   };
 
   const handleTaskImportance = (id) => {
-    console.log("change importance");
-    const tempTodos = todos.find((item) => item.id === id);
-    console.log("before change", tempTodos);
-    tempTodos.importance = !tempTodos.importance;
-    console.log("after change", tempTodos);
+    // console.log("change importance");
+    // const tempTodos = todos.find((item) => item.id === id);
+    // console.log("before change", tempTodos);
+    // tempTodos.importance = !tempTodos.importance;
+    // console.log("after change", tempTodos);
+
+    // Copy the state first using the spread operator
+    // Since you are using array as your todo, we have to clone the array (with map) and the object inside it (with ...)
+    let tempTodos = todos.map((todo) => ({ ...todo }));
+    // Find the todo based on the id
+    const impTodo = tempTodos.find((item) => item.id === id);
+    // In here we are changing the copy of the todos, so we are not messing with the current todos state
+    impTodo.importance = !impTodo.importance;
+    // Then we replace the current state with the tempTodos
+    setTodos(tempTodos);
+  };
+
+  const handleTaskCompleted = (id) => {
+    console.log("change ");
   };
 
   return (
