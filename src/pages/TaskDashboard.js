@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-// import axios from "axios";
+import axios from "axios";
 import "../assets/style/TaskDashboard.css";
 import TaskCards from "../components/TaskCards";
 import AddTask from "../components/AddTask";
 
 const TaskDashboard = (props) => {
   const [todos, setTodos] = useState([]);
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
     let token = localStorage.getItem("token");
@@ -13,6 +14,30 @@ const TaskDashboard = (props) => {
       props.history.replace("/signin");
     }
   });
+
+  // useEffect(() => {
+  //   let token = localStorage.getItem("token");
+  //   if (token) {
+  //     axios({
+  //       method: "GET",
+  //       url: "https://mini-project1.herokuapp.com/api/v1/user/profile",
+  //       headers: {
+  //         authorization: token,
+  //       },
+  //     })
+  //       .then((res) => {
+  //         console.log(res);
+  //         // if(res.data.success){
+  //         //   this.setState({
+  //         //     users: res.data.result
+  //         //   })
+  //         // }
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }
+  // });
 
   const handleAddTodo = (data) => {
     setTodos([data, ...todos]);

@@ -14,7 +14,7 @@ const SignIn = (props) => {
   useEffect(() => {
     let token = localStorage.getItem("token");
     if (token) props.history.replace("/");
-  });
+  }, [props.history]);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -30,11 +30,10 @@ const SignIn = (props) => {
       .then((res) => {
         if (res.data.status) {
           localStorage.setItem("token", res.data.data.token);
-
           setIsLoading(false);
           setEmail("");
           setPassword("");
-          props.history.push("/");
+          props.history.replace("/");
         } else {
           //handle error
         }
