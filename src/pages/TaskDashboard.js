@@ -6,7 +6,9 @@ import AddTask from "../components/AddTask";
 
 const TaskDashboard = (props) => {
   const [todos, setTodos] = useState([]);
-  const [userName, setUserName] = useState("");
+  const [userName, setUserName] = useState(null);
+  const [userImg, setUserImg] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     let token = localStorage.getItem("token");
@@ -15,29 +17,30 @@ const TaskDashboard = (props) => {
     }
   });
 
-  // useEffect(() => {
-  //   let token = localStorage.getItem("token");
-  //   if (token) {
-  //     axios({
-  //       method: "GET",
-  //       url: "https://mini-project1.herokuapp.com/api/v1/user/profile",
-  //       headers: {
-  //         authorization: token,
-  //       },
-  //     })
-  //       .then((res) => {
-  //         console.log(res);
-  //         // if(res.data.success){
-  //         //   this.setState({
-  //         //     users: res.data.result
-  //         //   })
-  //         // }
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   }
-  // });
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    if (token) {
+      setIsLoading(true);
+      axios({
+        method: "GET",
+        url: "https://mini-project1.herokuapp.com/api/v1/user/profile",
+        headers: {
+          authorization: token,
+        },
+      })
+        .then((res) => {
+          setIsLoading(false);
+          console.log(res);
+          if (res.data.status) {
+            setUserName(res.data.data.owner.name);
+            setUserImg(res.data.data.owner.image);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, []);
 
   const handleAddTodo = (data) => {
     setTodos([data, ...todos]);
@@ -82,10 +85,12 @@ const TaskDashboard = (props) => {
           <div className="left-side">
             <div className="user-profile">
               <div className="user-img">
-                <div className="img-box"></div>
+                <div className="img-box">
+                  <img className="img" src={userImg} alt="" />
+                </div>
               </div>
               <div className="user-name">
-                <strong>Profile Name</strong>
+                <strong>{isLoading ? "Profile Name" : `${userName}`}</strong>
               </div>
             </div>
             <div>

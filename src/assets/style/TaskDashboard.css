@@ -54,6 +54,13 @@
   border-radius: 50%;
 }
 
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 .user-name {
   flex-basis: 60%;
   font-size: 1.2em;
@@ -173,5 +180,5 @@
 }
 
 .important {
-  color: rgb(255, 255, 95);
+  color: rgb(255, 255, 65);
 }
