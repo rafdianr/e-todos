@@ -30,7 +30,7 @@ function SignUp() {
               <form className="sign-form" action="submit">
                 <input type="text" placeholder="Name" />
                 <input type="text" placeholder="Email" />
-                <input type="text" placeholder="Password" />
+                <input type="password" placeholder="Password" />
                 <button className="reg-btn">SIGN UP</button>
               </form>
             </div>

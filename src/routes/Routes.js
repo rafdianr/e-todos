@@ -11,6 +11,7 @@ function Routes() {
         <Route path="/signup" component={SignUp} exact />
         <Route path="/signin" component={SignIn} exact />
         <Route path="/" component={TaskDashboard} exact />
+        <Route component={() => "404 Not Found"} />
       </Switch>
     </Fragment>
   );

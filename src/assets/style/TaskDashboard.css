@@ -13,6 +13,15 @@
   border-top-right-radius: 0.5em;
 }
 
+.logout {
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.logout:hover {
+  opacity: 0.6;
+}
+
 .task-wrapper {
   width: 100%;
   height: 80vh;
