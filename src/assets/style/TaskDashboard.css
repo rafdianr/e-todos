@@ -160,6 +160,10 @@
   opacity: 0.5;
 }
 
+.completed-icon {
+  color: rgb(0, 118, 214)
+}
+
 .task-icon {
   flex-basis: 5%;
   text-align: center;

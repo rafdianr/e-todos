@@ -123,29 +123,63 @@ const TaskDashboard = (props) => {
 
   const handleTaskImportance = (id) => {
     console.log("change importance");
-    let tempTodos = todos.map((todo) => ({ ...todo }));
-    const impTodo = tempTodos.find((item) => item.id === id);
-    impTodo.importance = !impTodo.importance;
-    setTodos(tempTodos);
+    let token = localStorage.getItem("token");
+    if (token) {
+      axios({
+        method: "PUT",
+        url: `https://mini-project1.herokuapp.com/api/v1/tasks/toogle-importance/${id}`,
+        headers: {
+          authorization: token,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          if (res.data.status) {
+            let tempTodos = todos.map((todo) => ({ ...todo }));
+            const impTodo = tempTodos.find((item) => item.id === id);
+            impTodo.importance = !impTodo.importance;
+            setTodos(tempTodos);
+          }
+        })
+        .catch((err) => {
+          console.log({ err });
+        });
+    }
+    // let tempTodos = todos.map((todo) => ({ ...todo }));
+    // const impTodo = tempTodos.find((item) => item.id === id);
+    // impTodo.importance = !impTodo.importance;
+    // setTodos(tempTodos);
   };
 
   const handleTaskCompletion = (id) => {
     console.log("change completion");
-    let tempTodos = todos.map((todo) => ({ ...todo }));
-    const comTodo = tempTodos.find((item) => item.id === id);
-    comTodo.completion = !comTodo.completion;
-    setTodos(tempTodos);
+    let token = localStorage.getItem("token");
+    if (token) {
+      axios({
+        method: "PUT",
+        url: `https://mini-project1.herokuapp.com/api/v1/tasks/toogle-completion/${id}`,
+        headers: {
+          authorization: token,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          if (res.data.status) {
+            let tempTodos = todos.map((todo) => ({ ...todo }));
+            const comTodo = tempTodos.find((item) => item.id === id);
+            comTodo.completion = !comTodo.completion;
+            setTodos(tempTodos);
+          }
+        })
+        .catch((err) => {
+          console.log({ err });
+        });
+    }
+    // let tempTodos = todos.map((todo) => ({ ...todo }));
+    // const comTodo = tempTodos.find((item) => item.id === id);
+    // comTodo.completion = !comTodo.completion;
+    // setTodos(tempTodos);
   };
-
-  // const handleShowAllTask = () => {
-  //   console.log("show all task");
-  //   setTodos([...todos]);
-  // };
-
-  // const handleShowImpTask = () => {
-  //   console.log("show important task");
-  //   setTodos([...todos.find((item) => item.importance === true)]);
-  // };
 
   const handleLogout = () => {
     console.log("logout nih");

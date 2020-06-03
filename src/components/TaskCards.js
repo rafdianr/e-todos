@@ -11,7 +11,7 @@ import {
 const TaskCards = (props) => {
   const list = props.todos.map((item) => (
     <div className="task-card" key={item.id}>
-      <div className="task-icon check">
+      <div className={`task-icon ${item.completion && "completed-icon"}`}>
         <FontAwesomeIcon
           icon={faSquare}
           onClick={() => props.ComTodo(item.id)}

@@ -4,20 +4,6 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 const AddTask = (props) => {
-  // const [newTask, setNewTask] = useState("");
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const newData = {
-  //     userId: 1,
-  //     id: props.todos.length + 1,
-  //     title: newTask,
-  //     completion: false,
-  //     importance: false,
-  //   };
-  //   props.AddTodo(newData);
-  //   setNewTask("");
-  // };
-
   const [description, setDescription] = useState("");
   const [name] = useState("Task Baru");
 
