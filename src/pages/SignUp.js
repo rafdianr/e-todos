@@ -83,18 +83,21 @@ const SignUp = (props) => {
                   placeholder="Name"
                   value={name}
                   onChange={(event) => setName(event.target.value)}
+                  required
                 />
                 <input
                   type="text"
                   placeholder="Email"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
+                  required
                 />
                 <input
                   type="password"
                   placeholder="Password"
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
+                  required
                 />
                 <button className="reg-btn">
                   {isLoading ? "Loading..." : "SIGN UP"}

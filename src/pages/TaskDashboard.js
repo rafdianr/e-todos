@@ -19,6 +19,7 @@ const TaskDashboard = (props) => {
   });
 
   useEffect(() => {
+    //GET PROFILE
     let token = localStorage.getItem("token");
     if (token) {
       setIsLoading(true);
@@ -45,6 +46,7 @@ const TaskDashboard = (props) => {
   }, []);
 
   useEffect(() => {
+    //GET TASK
     let token = localStorage.getItem("token");
     if (token) {
       axios({
@@ -66,8 +68,35 @@ const TaskDashboard = (props) => {
     }
   }, [userId]);
 
-  const handleAddTodo = (data) => {
-    setTodos([data, ...todos]);
+  // const handleAddTodo = (data) => {
+  //   setTodos([data, ...todos]);
+  // };
+
+  const getTodo = () => {
+    let token = localStorage.getItem("token");
+    if (token) {
+      axios({
+        method: "GET",
+        url: "https://mini-project1.herokuapp.com/api/v1/tasks?page=1&limit=10",
+        headers: {
+          authorization: token,
+        },
+      })
+        .then((res) => {
+          console.log("getTodo", userId, res);
+          if (res.data.status) {
+            console.log("dari fungsi get todo", res);
+            const newData = res.data.data.filter(
+              (item) => item.author.id === userId
+            );
+            console.log(newData);
+            setTodos(newData);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   const handleDeleteTodo = (id) => {
@@ -152,7 +181,7 @@ const TaskDashboard = (props) => {
             </div>
           </div>
           <div className="right-side">
-            <AddTask AddTodo={handleAddTodo} todos={todos} />
+            <AddTask GetTodo={getTodo} todos={todos} />
             <div className="task-list">
               {todos.length ? (
                 <TaskCards
