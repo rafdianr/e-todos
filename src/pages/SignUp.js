@@ -17,6 +17,7 @@ const SignUp = (props) => {
 
   const handleSignup = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     console.log("fungsi signup");
     axios({
       method: "POST",
@@ -95,7 +96,9 @@ const SignUp = (props) => {
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
                 />
-                <button className="reg-btn">SIGN UP</button>
+                <button className="reg-btn">
+                  {isLoading ? "Loading..." : "SIGN UP"}
+                </button>
               </form>
             </div>
           </div>

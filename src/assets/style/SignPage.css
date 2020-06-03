@@ -3,6 +3,11 @@
   margin: 0;
 }
 
+input,
+button {
+  outline: 0;
+}
+
 body {
   width: auto;
   font-size: 12px;
@@ -107,6 +112,7 @@ body {
   cursor: pointer;
   text-decoration: none;
 }
+
 
 .white {
   border: 1px solid #f4f4f4;

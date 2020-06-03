@@ -8,6 +8,7 @@ const TaskDashboard = (props) => {
   const [todos, setTodos] = useState([]);
   const [userName, setUserName] = useState(null);
   const [userImg, setUserImg] = useState(null);
+  const [userId, setUserId] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -34,6 +35,7 @@ const TaskDashboard = (props) => {
           if (res.data.status) {
             setUserName(res.data.data.owner.name);
             setUserImg(res.data.data.owner.image);
+            setUserId(res.data.data.id);
           }
         })
         .catch((err) => {
@@ -42,12 +44,52 @@ const TaskDashboard = (props) => {
     }
   }, []);
 
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    if (token) {
+      axios({
+        method: "GET",
+        url: "https://mini-project1.herokuapp.com/api/v1/tasks?page=1&limit=10",
+        headers: {
+          authorization: token,
+        },
+      })
+        .then((res) => {
+          console.log("getTodo", userId, res);
+          if (res.data.status) {
+            setTodos(res.data.data.filter((item) => item.author.id === userId));
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [userId]);
+
   const handleAddTodo = (data) => {
     setTodos([data, ...todos]);
   };
 
   const handleDeleteTodo = (id) => {
-    setTodos([...todos.filter((item) => item.id !== id)]);
+    let token = localStorage.getItem("token");
+    if (token) {
+      axios({
+        method: "DELETE",
+        url: `https://mini-project1.herokuapp.com/api/v1/tasks/${id}`,
+        headers: {
+          authorization: token,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          if (res.data.status) {
+            setTodos([...todos.filter((item) => item.id !== id)]);
+          }
+        })
+        .catch((err) => {
+          console.log({ err });
+        });
+    }
   };
 
   const handleTaskImportance = (id) => {
@@ -65,6 +107,16 @@ const TaskDashboard = (props) => {
     comTodo.completion = !comTodo.completion;
     setTodos(tempTodos);
   };
+
+  // const handleShowAllTask = () => {
+  //   console.log("show all task");
+  //   setTodos([...todos]);
+  // };
+
+  // const handleShowImpTask = () => {
+  //   console.log("show important task");
+  //   setTodos([...todos.find((item) => item.importance === true)]);
+  // };
 
   const handleLogout = () => {
     console.log("logout nih");
