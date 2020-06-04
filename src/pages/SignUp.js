@@ -18,7 +18,7 @@ const SignUp = (props) => {
   const handleSignup = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    console.log("fungsi signup");
+    // console.log("fungsi signup");
     axios({
       method: "POST",
       url: "https://mini-project1.herokuapp.com/api/v1/user/register",
@@ -29,7 +29,7 @@ const SignUp = (props) => {
       },
     })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.data.status) {
           localStorage.setItem("token", res.data.data.token);
           setIsLoading(false);
@@ -42,7 +42,7 @@ const SignUp = (props) => {
         }
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         setIsLoading(false);
         setName("");
         setEmail("");

@@ -32,7 +32,7 @@ const TaskDashboard = (props) => {
       })
         .then((res) => {
           setIsLoading(false);
-          console.log(res);
+          // console.log(res);
           if (res.data.status) {
             setUserName(res.data.data.owner.name);
             setUserImg(res.data.data.owner.image);
@@ -40,7 +40,7 @@ const TaskDashboard = (props) => {
           }
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
         });
     }
   }, []);
@@ -57,13 +57,13 @@ const TaskDashboard = (props) => {
         },
       })
         .then((res) => {
-          console.log("getTodo", userId, res);
+          // console.log("getTodo", userId, res);
           if (res.data.status) {
             setTodos(res.data.data.filter((item) => item.author.id === userId));
           }
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
         });
     }
   }, [userId]);
@@ -83,18 +83,18 @@ const TaskDashboard = (props) => {
         },
       })
         .then((res) => {
-          console.log("getTodo", userId, res);
+          // console.log("getTodo", userId, res);
           if (res.data.status) {
-            console.log("dari fungsi get todo", res);
+            // console.log("dari fungsi get todo", res);
             const newData = res.data.data.filter(
               (item) => item.author.id === userId
             );
-            console.log(newData);
+            // console.log(newData);
             setTodos(newData);
           }
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
         });
     }
   };
@@ -110,19 +110,19 @@ const TaskDashboard = (props) => {
         },
       })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           if (res.data.status) {
             setTodos([...todos.filter((item) => item.id !== id)]);
           }
         })
         .catch((err) => {
-          console.log({ err });
+          // console.log({ err });
         });
     }
   };
 
   const handleTaskImportance = (id) => {
-    console.log("change importance");
+    // console.log("change importance");
     let token = localStorage.getItem("token");
     if (token) {
       axios({
@@ -133,7 +133,7 @@ const TaskDashboard = (props) => {
         },
       })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           if (res.data.status) {
             let tempTodos = todos.map((todo) => ({ ...todo }));
             const impTodo = tempTodos.find((item) => item.id === id);
@@ -142,7 +142,7 @@ const TaskDashboard = (props) => {
           }
         })
         .catch((err) => {
-          console.log({ err });
+          // console.log({ err });
         });
     }
     // let tempTodos = todos.map((todo) => ({ ...todo }));
@@ -152,7 +152,7 @@ const TaskDashboard = (props) => {
   };
 
   const handleTaskCompletion = (id) => {
-    console.log("change completion");
+    // console.log("change completion");
     let token = localStorage.getItem("token");
     if (token) {
       axios({
@@ -163,7 +163,7 @@ const TaskDashboard = (props) => {
         },
       })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           if (res.data.status) {
             let tempTodos = todos.map((todo) => ({ ...todo }));
             const comTodo = tempTodos.find((item) => item.id === id);
@@ -172,7 +172,7 @@ const TaskDashboard = (props) => {
           }
         })
         .catch((err) => {
-          console.log({ err });
+          // console.log({ err });
         });
     }
     // let tempTodos = todos.map((todo) => ({ ...todo }));
@@ -182,7 +182,7 @@ const TaskDashboard = (props) => {
   };
 
   const handleLogout = () => {
-    console.log("logout nih");
+    // console.log("logout nih");
     localStorage.removeItem("token");
     props.history.replace("/signin");
   };

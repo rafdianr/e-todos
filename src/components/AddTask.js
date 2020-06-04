@@ -9,7 +9,7 @@ const AddTask = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("fungsi add data");
+    // console.log("fungsi add data");
     let token = localStorage.getItem("token");
     if (token) {
       axios({
@@ -24,12 +24,12 @@ const AddTask = (props) => {
         },
       })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           props.GetTodo();
           setDescription("");
         })
         .catch((err) => {
-          console.log({ err });
+          // console.log({ err });
         });
     }
   };

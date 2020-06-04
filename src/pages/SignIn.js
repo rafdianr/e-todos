@@ -39,7 +39,7 @@ const SignIn = (props) => {
         }
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         setIsLoading(false);
         setEmail("");
         setPassword("");
